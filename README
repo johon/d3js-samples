@@ -1,5 +1,5 @@
 Sample implementations of charts etc. using d3js (http://d3js.org/).
 
 Instructions to run:
-* get sbt 0.13
+* get sbt 0.12
 * type in sbt shell: 'container:start'
