@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">	
+  <head>
+    <title>Home</title>
+    <script type="text/javascript" src="js/d3.v2.js"></script>
+	<link href="blueprint/screen.css" rel="stylesheet" type="text/css" media="screen,projection" />
+	<style>
+	body > header {
+		font-size: 2em;
+		font-weight: bold;
+		text-align: center;
+	}	
+	
+	.plusMinusBarChart .chart {
+		overflow: hidden;
+		padding-top: 50px;
+	}
+	
+	.plusMinusBarChart .bar {
+		background-color: #ff7d00;
+		padding: 0;
+		margin: 0 4px;
+	}
+	
+	.plusMinusBarChart .bar .bar-y-label {
+	    font-weight: bold;
+		margin-top: -30px;
+		text-align: center;
+		color: #888;
+		font-size: 1.6em;
+	}
+	</style>
+  </head>
+  <body>
+    <header>
+	  d3 example charts
+	</header>
+	
+	<section class="container">
+	  Public balance for selected countries in 2011 (% of GDP)
+	  <div id="publicBalanceChart" class="plusMinusBarChart"></div>
+	</section>
+	
+	<footer>
+	  <p>data source: Eurostat, April 2012</p>
+	  <p>implementation: Jouni Honkala</p>
+	</footer>
+  </body>
+  <script type="text/javascript" src="js/charts.js"></script>
+  <script type="text/javascript" src="js/renderer.js"></script>
+</html>
