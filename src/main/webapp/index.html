@@ -13,6 +13,16 @@ body>header {
 	text-align: center;
 }
 
+section.container {
+	padding: 1.5em 0;
+}
+
+section.container>header {
+	font-size: 1.7em;
+	font-weight: bold;
+	text-align: center;
+}
+
 .plusMinusBarChart .chart {
 	overflow: hidden;
 	padding-top: 50px;
@@ -36,14 +46,39 @@ body>header {
 	margin: 0 4px;
 	text-align: center;
 }
+
+.x-label {
+	font-weight: bold;
+	color: #888;
+	font-size: 1.2em;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
 </style>
 </head>
 <body>
 	<header> d3 example charts </header>
 
-	<section class="container"> Public balance for selected
-	countries in 2011 (% of GDP)
-	<div id="publicBalanceChart" class="plusMinusBarChart"></div>
+	<section class="container">
+	  <header>Public balance for selected countries in 2011 (% of GDP)</header>
+	  <div id="publicBalanceChart" class="plusMinusBarChart"></div>
+	</section>
+
+	<section class="container">
+	  <header>General government debt in selected countries, 2008-2011 (% of GDP)</header>
+  	  <div id="grossDebtChart" class="grossDebtChart"></div>
 	</section>
 
 	<footer>
