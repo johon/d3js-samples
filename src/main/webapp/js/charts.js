@@ -1,21 +1,13 @@
 var charts = {};
 
-charts.publicBalanceChart = function (raw) {
+charts.publicBalanceChart = function (dataset) {
   var elementSelector = "#publicBalanceChart";
-  var formatPercent = d3.format(".1%");
   var height = 600;
 
   d3.select(elementSelector).selectAll().remove(); // remove chart div content
 
   var chart = d3.select(elementSelector).append("div").attr("class", "chart");
   var xAxis = d3.select(elementSelector).append("div").attr("class", "axis");
-
-  var dataset = raw.map(function(d) { 
-    return {
-	  "xLabel": d.Country, 
-	  "yLabel": formatPercent((+d.y2011)/100), 
-	  "value": (+d.y2011) / 100}; } 
-  );
   
   // Compute y-axis scale (d3 nice scale between -y0 and y0, where y0 = max(abs(yN)))
   var yValues = dataset.map(function(d) {return d.value;});
@@ -44,10 +36,8 @@ charts.publicBalanceChart = function (raw) {
 
 };
 
-charts.grossDebtChart = function (raw) {
+charts.grossDebtChart = function (dataset, years) {
   var elementSelector = "#grossDebtChart";
-  var grossDebtChartVisibleCountries = ["Norway", "Greece", "Finland"];
-  var years = [2008,2009,2010,2011];
   
   d3.select(elementSelector).selectAll().remove(); // remove chart div content
 
@@ -55,17 +45,6 @@ charts.grossDebtChart = function (raw) {
       axisWidth = 850, axisHeight = 600,
 	  margin = 50;
   
-  var dataset = raw.filter(function(d) { 
-	  return grossDebtChartVisibleCountries.indexOf(d.Country) > -1 });
-  
-  dataset.forEach(function(d) {
-	 d.y2008 = +d.y2008;
-	 d.y2009 = +d.y2009;
-	 d.y2010 = +d.y2010;
-	 d.y2011 = +d.y2011;
-	 d.yValues = [d.y2008, d.y2009, d.y2010, d.y2011]
-	 d.max = d3.max(d.yValues);
-  });
 
   // Compute y-axis scale (d3 nice scale between -y0 and y0, where y0 = max(abs(yN)))
   var yMax = d3.max(dataset.map(function(d) { return d.max; }));
